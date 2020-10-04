@@ -14,5 +14,6 @@ function fish-history-expansion --on-event fish_command_not_found \
         end
         set i (math "$i+1")
     end
+    echo "fish-history-expansion: $argv: event not found"
 end
 
