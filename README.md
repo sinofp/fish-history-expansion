@@ -16,5 +16,4 @@ fish can use bang prefix
 $ !e
 echo fish can use bang prefix
 fish can use bang prefix
-fish: Unknown command: !e
 ```
