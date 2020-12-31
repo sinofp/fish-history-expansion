@@ -4,11 +4,16 @@ end
 
 function fish-history-expansion --on-event fish_command_not_found \
     --description="Mimic Bash's HISTORY EXPANSION"
-    if string match --quiet --invert '!*' $argv
-	printf "fish: Unknown command: %s\n" (string escape -- $argv[1]) >&2
+    if string match --quiet --invert '!*' $argv[1]
+        printf "fish: Unknown command: %s\n" (string escape -- $argv[1]) >&2
         return # command not started with '!'
     end
-    set input (string sub --start 2 $argv)
+
+    if [ 1 -eq (string length "$argv") ]
+        return
+    end
+
+    set input (string sub --start 2 "$argv")
 
     set i 1
     while string match --quiet --invert '' "$history[$i]"
@@ -21,3 +26,4 @@ function fish-history-expansion --on-event fish_command_not_found \
     end
     echo "fish-history-expansion: $argv: event not found"
 end
+

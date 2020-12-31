@@ -4,7 +4,7 @@ Add `!{prev-cmd-prefix}` to fish
 ## Installation
 
 ```fish
-fisher add sinofp/fish-history-expansion
+fisher install sinofp/fish-history-expansion
 ```
 
 ## Usage
